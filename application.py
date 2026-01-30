@@ -2,7 +2,7 @@ import os
 import sys
 sys.path.append(os.getcwd())
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 from src.pipelines.prediction_pipeline import CustomData, PredictPipeline
 
 application = Flask(__name__)
@@ -10,7 +10,7 @@ app = application
 
 @app.route('/')
 def home_page():
-    return render_template('index.html')
+    return redirect(url_for('predict_datapoint'))
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict_datapoint():
