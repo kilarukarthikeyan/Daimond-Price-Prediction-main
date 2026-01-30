@@ -35,4 +35,5 @@ def predict_datapoint():
         return render_template('form.html', final_result=results)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    # Changed to debug=True to see the actual error on the web page
+    app.run(host='0.0.0.0', port=5000, debug=True)
